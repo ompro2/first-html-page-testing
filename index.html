@@ -1,1 +1,2293 @@
-hello
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>VERA Residences | Premium 2 & 3 BHK Homes</title>
+
+  <meta
+    name="description"
+    content="Discover VERA Residences — premium 2 & 3 BHK homes in Thane West."
+  />
+
+  <!-- =========================================================
+       TAILWIND CDN
+  ========================================================== -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["DM Sans", "sans-serif"],
+            display: ["Playfair Display", "serif"]
+          },
+
+          colors: {
+            ink: "#18211D",
+            cream: "#F7F5EF",
+            sand: "#E9E5DA",
+            muted: "#73766F",
+            sage: "#6E786E"
+          },
+
+          boxShadow: {
+            luxury: "0 25px 80px rgba(20, 27, 23, .12)"
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- =========================================================
+       GOOGLE FONTS
+  ========================================================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- =========================================================
+       CUSTOM CSS
+  ========================================================== -->
+
+  <style>
+
+    :root {
+      --ink: #18211d;
+      --cream: #f7f5ef;
+      --sand: #e9e5da;
+      --muted: #73766f;
+      --line: rgba(24, 33, 29, .12);
+      --white-line: rgba(255,255,255,.16);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "DM Sans", sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button,
+    input,
+    select {
+      font-family: inherit;
+    }
+
+    ::selection {
+      background: var(--ink);
+      color: white;
+    }
+
+    /* =========================================================
+       TYPOGRAPHY
+    ========================================================== */
+
+    .display {
+      font-family: "Playfair Display", serif;
+      letter-spacing: -.035em;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+    }
+
+    /* =========================================================
+       CONTAINER
+    ========================================================== */
+
+    .container-custom {
+      width: min(1180px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    @media (max-width: 640px) {
+      .container-custom {
+        width: min(100% - 28px, 1180px);
+      }
+    }
+
+    /* =========================================================
+       HERO
+    ========================================================== */
+
+    .hero {
+      position: relative;
+      min-height: 760px;
+      height: 100svh;
+      max-height: 980px;
+
+      display: flex;
+      align-items: center;
+
+      color: white;
+
+      background-image:
+        linear-gradient(
+          90deg,
+          rgba(10, 17, 14, .91) 0%,
+          rgba(10, 17, 14, .72) 38%,
+          rgba(10, 17, 14, .32) 72%,
+          rgba(10, 17, 14, .18) 100%
+        ),
+        url("https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=2200&q=90");
+
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 180px;
+
+      background: linear-gradient(
+        transparent,
+        rgba(0,0,0,.35)
+      );
+
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding-top: 70px;
+    }
+
+    .hero-title {
+      max-width: 850px;
+
+      font-size: clamp(52px, 7vw, 94px);
+      line-height: .95;
+      font-weight: 500;
+    }
+
+    .hero-copy {
+      max-width: 570px;
+
+      font-size: clamp(16px, 2vw, 20px);
+      line-height: 1.7;
+
+      color: rgba(255,255,255,.74);
+    }
+
+    /* =========================================================
+       NAVBAR
+    ========================================================== */
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      z-index: 100;
+
+      padding: 25px 0;
+
+      color: white;
+
+      transition:
+        background .35s ease,
+        padding .35s ease,
+        backdrop-filter .35s ease;
+    }
+
+    .navbar.scrolled {
+      padding: 13px 0;
+
+      background: rgba(14, 21, 18, .91);
+
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+
+      display: grid;
+      place-items: center;
+
+      border: 1px solid rgba(255,255,255,.45);
+      border-radius: 50%;
+
+      font-family: "Playfair Display", serif;
+      font-size: 20px;
+    }
+
+    .nav-link {
+      position: relative;
+
+      font-size: 13px;
+      color: rgba(255,255,255,.72);
+
+      transition: color .25s ease;
+    }
+
+    .nav-link::after {
+      content: "";
+
+      position: absolute;
+      left: 0;
+      bottom: -7px;
+
+      width: 0;
+      height: 1px;
+
+      background: white;
+
+      transition: width .25s ease;
+    }
+
+    .nav-link:hover {
+      color: white;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* =========================================================
+       BUTTONS
+    ========================================================== */
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      min-height: 52px;
+      padding: 0 25px;
+
+      border-radius: 999px;
+
+      background: white;
+      color: var(--ink);
+
+      font-size: 13px;
+      font-weight: 700;
+
+      transition:
+        transform .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      background: #efeee8;
+      box-shadow: 0 12px 30px rgba(0,0,0,.18);
+    }
+
+    .btn-dark {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      min-height: 54px;
+      padding: 0 27px;
+
+      border-radius: 999px;
+
+      background: var(--ink);
+      color: white;
+
+      font-size: 13px;
+      font-weight: 700;
+
+      transition:
+        transform .25s ease,
+        background .25s ease;
+    }
+
+    .btn-dark:hover {
+      transform: translateY(-2px);
+      background: #29342e;
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 54px;
+      padding: 0 27px;
+
+      border: 1px solid rgba(255,255,255,.35);
+      border-radius: 999px;
+
+      color: white;
+
+      font-size: 13px;
+      font-weight: 600;
+
+      transition:
+        background .25s ease,
+        border .25s ease;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,.1);
+      border-color: white;
+    }
+
+    /* =========================================================
+       GLASS
+    ========================================================== */
+
+    .glass {
+      background: rgba(255,255,255,.09);
+
+      border: 1px solid rgba(255,255,255,.18);
+
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    /* =========================================================
+       SECTION SPACING
+    ========================================================== */
+
+    .section {
+      padding: 120px 0;
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        padding: 85px 0;
+      }
+    }
+
+    /* =========================================================
+       REVEAL ANIMATION
+    ========================================================== */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+
+      transition:
+        opacity .8s ease,
+        transform .8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =========================================================
+       INTRO IMAGE
+    ========================================================== */
+
+    .intro-image {
+      position: relative;
+      overflow: hidden;
+      border-radius: 28px;
+    }
+
+    .intro-image img {
+      width: 100%;
+      height: 590px;
+
+      object-fit: cover;
+
+      transition: transform .8s ease;
+    }
+
+    .intro-image:hover img {
+      transform: scale(1.035);
+    }
+
+    .floating-card {
+      position: absolute;
+
+      left: -35px;
+      bottom: 35px;
+
+      width: 210px;
+
+      padding: 24px;
+
+      border-radius: 20px;
+
+      background: white;
+
+      box-shadow: 0 25px 60px rgba(0,0,0,.13);
+    }
+
+    @media (max-width: 768px) {
+      .floating-card {
+        left: 15px;
+        bottom: 15px;
+      }
+
+      .intro-image img {
+        height: 460px;
+      }
+    }
+
+    /* =========================================================
+       STAT BAND
+    ========================================================== */
+
+    .stat-band {
+      background: var(--ink);
+      color: white;
+    }
+
+    .stat {
+      position: relative;
+    }
+
+    .stat:not(:last-child)::after {
+      content: "";
+
+      position: absolute;
+      right: 0;
+      top: 5px;
+
+      height: 55px;
+      width: 1px;
+
+      background: rgba(255,255,255,.12);
+    }
+
+    @media (max-width: 768px) {
+      .stat:not(:last-child)::after {
+        display: none;
+      }
+    }
+
+    /* =========================================================
+       AMENITY CARD
+    ========================================================== */
+
+    .amenity-card {
+      padding: 32px;
+
+      min-height: 245px;
+
+      background: white;
+
+      border: 1px solid rgba(24,33,29,.07);
+
+      border-radius: 24px;
+
+      transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        border .3s ease;
+    }
+
+    .amenity-card:hover {
+      transform: translateY(-7px);
+
+      border-color: transparent;
+
+      box-shadow: 0 25px 55px rgba(20,30,25,.1);
+    }
+
+    .amenity-icon {
+      width: 48px;
+      height: 48px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 14px;
+
+      background: var(--sand);
+
+      font-size: 20px;
+
+      margin-bottom: 35px;
+    }
+
+    /* =========================================================
+       GALLERY
+    ========================================================== */
+
+    .gallery-image {
+      position: relative;
+      overflow: hidden;
+
+      border-radius: 25px;
+
+      cursor: pointer;
+    }
+
+    .gallery-image::after {
+      content: "View";
+
+      position: absolute;
+      left: 50%;
+      top: 50%;
+
+      transform: translate(-50%, -50%) scale(.8);
+
+      opacity: 0;
+
+      padding: 10px 18px;
+
+      border-radius: 999px;
+
+      background: rgba(255,255,255,.9);
+      color: var(--ink);
+
+      font-size: 11px;
+      font-weight: 700;
+
+      transition: .35s ease;
+    }
+
+    .gallery-image:hover::after {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .gallery-image img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      transition: transform .7s ease;
+    }
+
+    .gallery-image:hover img {
+      transform: scale(1.06);
+    }
+
+    /* =========================================================
+       FLOOR PLAN
+    ========================================================== */
+
+    .plan-card {
+      position: relative;
+      overflow: hidden;
+
+      padding: 38px;
+
+      border-radius: 28px;
+
+      background: white;
+
+      box-shadow: 0 20px 60px rgba(20,30,25,.07);
+    }
+
+    .plan-card.dark {
+      background: var(--ink);
+      color: white;
+    }
+
+    .plan-number {
+      font-family: "Playfair Display", serif;
+      font-size: 50px;
+      line-height: 1;
+    }
+
+    /* =========================================================
+       LOCATION
+    ========================================================== */
+
+    .location-section {
+      background: var(--ink);
+      color: white;
+    }
+
+    .map-frame {
+      height: 500px;
+      overflow: hidden;
+
+      border-radius: 28px;
+
+      background: #29352f;
+    }
+
+    .map-frame iframe {
+      width: 100%;
+      height: 100%;
+
+      border: 0;
+      filter: grayscale(.15);
+    }
+
+    /* =========================================================
+       TESTIMONIAL
+    ========================================================== */
+
+    .quote-mark {
+      font-family: "Playfair Display", serif;
+
+      font-size: 80px;
+      line-height: .5;
+
+      color: #c9c5b9;
+    }
+
+    /* =========================================================
+       CONTACT
+    ========================================================== */
+
+    .form-card {
+      background: white;
+
+      border-radius: 28px;
+
+      padding: 42px;
+
+      box-shadow: 0 25px 70px rgba(20,30,25,.1);
+    }
+
+    .input-field {
+      width: 100%;
+
+      height: 55px;
+
+      padding: 0 17px;
+
+      border: 1px solid #deddd6;
+
+      border-radius: 13px;
+
+      background: white;
+
+      color: var(--ink);
+
+      outline: none;
+
+      transition:
+        border .2s ease,
+        box-shadow .2s ease;
+    }
+
+    .input-field:focus {
+      border-color: var(--ink);
+
+      box-shadow: 0 0 0 4px rgba(24,33,29,.06);
+    }
+
+    /* =========================================================
+       FOOTER
+    ========================================================== */
+
+    .footer {
+      background: #0d1411;
+      color: white;
+    }
+
+    /* =========================================================
+       WHATSAPP
+    ========================================================== */
+
+    .whatsapp {
+      position: fixed;
+
+      right: 22px;
+      bottom: 22px;
+
+      z-index: 90;
+
+      width: 57px;
+      height: 57px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: #1c2a23;
+      color: white;
+
+      box-shadow: 0 15px 35px rgba(0,0,0,.22);
+
+      transition: transform .25s ease;
+    }
+
+    .whatsapp:hover {
+      transform: translateY(-4px) scale(1.05);
+    }
+
+    /* =========================================================
+       MOBILE MENU
+    ========================================================== */
+
+    .mobile-menu {
+      display: none;
+
+      margin-top: 15px;
+
+      padding: 20px;
+
+      border-radius: 20px;
+
+      background: rgba(13,20,17,.95);
+
+      border: 1px solid rgba(255,255,255,.1);
+
+      backdrop-filter: blur(20px);
+    }
+
+    .mobile-menu.open {
+      display: block;
+    }
+
+    /* =========================================================
+       MODAL
+    ========================================================== */
+
+    .modal {
+      position: fixed;
+      inset: 0;
+
+      z-index: 200;
+
+      display: none;
+
+      align-items: center;
+      justify-content: center;
+
+      padding: 20px;
+
+      background: rgba(0,0,0,.88);
+    }
+
+    .modal.open {
+      display: flex;
+    }
+
+    .modal img {
+      max-width: 95vw;
+      max-height: 88vh;
+
+      border-radius: 18px;
+
+      object-fit: contain;
+    }
+
+    .modal-close {
+      position: absolute;
+
+      right: 25px;
+      top: 20px;
+
+      width: 45px;
+      height: 45px;
+
+      display: grid;
+      place-items: center;
+
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 50%;
+
+      background: rgba(255,255,255,.08);
+
+      color: white;
+
+      font-size: 25px;
+
+      cursor: pointer;
+    }
+
+    /* =========================================================
+       SMALL DEVICES
+    ========================================================== */
+
+    @media (max-width: 640px) {
+
+      .hero {
+        min-height: 720px;
+      }
+
+      .hero-title {
+        font-size: 53px;
+      }
+
+      .hero-content {
+        padding-top: 95px;
+      }
+
+      .section {
+        padding: 75px 0;
+      }
+
+      .form-card {
+        padding: 25px;
+      }
+
+      .plan-card {
+        padding: 28px;
+      }
+
+      .map-frame {
+        height: 380px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+<!-- =========================================================
+     NAVBAR
+========================================================== -->
+
+<header id="navbar" class="navbar">
+
+  <div class="container-custom">
+
+    <div class="flex items-center justify-between">
+
+      <!-- Brand -->
+
+      <a href="#home" class="flex items-center gap-3">
+
+        <div class="brand-mark">
+          V
+        </div>
+
+        <div>
+          <div class="font-semibold tracking-[.18em] text-sm">
+            VERA
+          </div>
+
+          <div class="text-[8px] tracking-[.3em] uppercase opacity-60">
+            Residences
+          </div>
+        </div>
+
+      </a>
+
+
+      <!-- Desktop Navigation -->
+
+      <div class="hidden md:flex items-center gap-8">
+
+        <a href="#about" class="nav-link">
+          Overview
+        </a>
+
+        <a href="#amenities" class="nav-link">
+          Amenities
+        </a>
+
+        <a href="#gallery" class="nav-link">
+          Gallery
+        </a>
+
+        <a href="#plans" class="nav-link">
+          Residences
+        </a>
+
+        <a href="#location" class="nav-link">
+          Location
+        </a>
+
+        <a href="#contact" class="btn-primary">
+          Enquire Now
+        </a>
+
+      </div>
+
+
+      <!-- Mobile Button -->
+
+      <button
+        id="menuBtn"
+        class="md:hidden text-2xl"
+        aria-label="Open navigation"
+      >
+        ☰
+      </button>
+
+    </div>
+
+
+    <!-- Mobile Navigation -->
+
+    <div id="mobileMenu" class="mobile-menu">
+
+      <div class="flex flex-col gap-5 text-sm">
+
+        <a href="#about">Overview</a>
+
+        <a href="#amenities">Amenities</a>
+
+        <a href="#gallery">Gallery</a>
+
+        <a href="#plans">Residences</a>
+
+        <a href="#location">Location</a>
+
+        <a href="#contact" class="font-semibold">
+          Enquire Now →
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<!-- =========================================================
+     HERO
+========================================================== -->
+
+<section id="home" class="hero">
+
+  <div class="container-custom hero-content">
+
+    <div class="max-w-4xl">
+
+      <div
+        class="inline-flex items-center gap-3 glass rounded-full px-4 py-2 mb-8"
+      >
+
+        <span class="w-2 h-2 rounded-full bg-white"></span>
+
+        <span class="eyebrow text-white/75">
+          Thane West · Mumbai
+        </span>
+
+      </div>
+
+
+      <h1 class="display hero-title">
+
+        A quieter way
+
+        <br>
+
+        <em>to live.</em>
+
+      </h1>
+
+
+      <p class="hero-copy mt-8">
+
+        Premium 2 & 3 BHK residences designed around natural light,
+        generous spaces and the moments that make a home feel like yours.
+
+      </p>
+
+
+      <div class="flex flex-col sm:flex-row gap-3 mt-9">
+
+        <a href="#contact" class="btn-primary">
+          Book a Private Visit
+          <span>→</span>
+        </a>
+
+        <a href="#about" class="btn-outline">
+          Explore Residences
+        </a>
+
+      </div>
+
+
+      <!-- Hero Stats -->
+
+      <div
+        class="flex flex-wrap gap-8 mt-12 pt-8 border-t border-white/20 max-w-2xl"
+      >
+
+        <div>
+
+          <div class="text-2xl font-semibold">
+            2 & 3
+          </div>
+
+          <div class="text-xs text-white/50 mt-1">
+            BHK Homes
+          </div>
+
+        </div>
+
+
+        <div>
+
+          <div class="text-2xl font-semibold">
+            G+28
+          </div>
+
+          <div class="text-xs text-white/50 mt-1">
+            Storeys
+          </div>
+
+        </div>
+
+
+        <div>
+
+          <div class="text-2xl font-semibold">
+            40+
+          </div>
+
+          <div class="text-xs text-white/50 mt-1">
+            Amenities
+          </div>
+
+        </div>
+
+
+        <div>
+
+          <div class="text-2xl font-semibold">
+            2028
+          </div>
+
+          <div class="text-xs text-white/50 mt-1">
+            Possession
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     INTRO
+========================================================== -->
+
+<section id="about" class="section">
+
+  <div class="container-custom">
+
+    <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+
+      <div class="reveal">
+
+        <div class="eyebrow text-muted mb-5">
+          The Residence
+        </div>
+
+        <h2 class="display text-5xl md:text-6xl leading-[1.03]">
+
+          Designed for the
+
+          <br>
+
+          <em>life you imagine.</em>
+
+        </h2>
+
+
+        <p class="text-muted text-lg leading-8 mt-8">
+
+          VERA Residences brings together contemporary architecture,
+          thoughtful interiors and landscaped spaces to create a home
+          that feels calm, connected and distinctly yours.
+
+        </p>
+
+
+        <p class="text-muted leading-8 mt-5">
+
+          Every residence has been planned around natural light,
+          generous proportions and effortless everyday living.
+
+        </p>
+
+
+        <a
+          href="#contact"
+          class="inline-flex items-center gap-3 mt-8 font-semibold text-sm border-b border-ink pb-2"
+        >
+          Request the brochure
+          <span>→</span>
+        </a>
+
+      </div>
+
+
+      <div class="intro-image reveal">
+
+        <img
+          src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=90"
+          alt="Premium VERA living room"
+          loading="lazy"
+        >
+
+
+        <div class="floating-card">
+
+          <div class="display text-4xl">
+            01
+          </div>
+
+          <p class="text-sm text-muted mt-3 leading-6">
+            Architecture inspired by nature,
+            designed for modern living.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     STAT BAND
+========================================================== -->
+
+<section class="stat-band py-16">
+
+  <div class="container-custom">
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-10">
+
+      <div class="stat text-center md:text-left">
+
+        <div class="display text-4xl">
+          5 min
+        </div>
+
+        <div class="text-sm text-white/45 mt-2">
+          From Metro Station
+        </div>
+
+      </div>
+
+
+      <div class="stat text-center md:text-left">
+
+        <div class="display text-4xl">
+          40+
+        </div>
+
+        <div class="text-sm text-white/45 mt-2">
+          Lifestyle Amenities
+        </div>
+
+      </div>
+
+
+      <div class="stat text-center md:text-left">
+
+        <div class="display text-4xl">
+          2 & 3
+        </div>
+
+        <div class="text-sm text-white/45 mt-2">
+          BHK Configurations
+        </div>
+
+      </div>
+
+
+      <div class="stat text-center md:text-left">
+
+        <div class="display text-4xl">
+          2028
+        </div>
+
+        <div class="text-sm text-white/45 mt-2">
+          Possession
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     AMENITIES
+========================================================== -->
+
+<section id="amenities" class="section">
+
+  <div class="container-custom">
+
+    <div class="max-w-2xl reveal">
+
+      <div class="eyebrow text-muted mb-5">
+        Lifestyle
+      </div>
+
+      <h2 class="display text-5xl md:text-6xl leading-[1.05]">
+
+        Everything you need.
+
+        <br>
+
+        <em>Nothing you don't.</em>
+
+      </h2>
+
+    </div>
+
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-14">
+
+
+      <div class="amenity-card reveal">
+
+        <div class="amenity-icon">
+          ◌
+        </div>
+
+        <h3 class="text-xl font-semibold">
+          Infinity Pool
+        </h3>
+
+        <p class="text-muted leading-7 mt-3">
+          A serene rooftop pool designed for slow mornings
+          and beautiful sunset evenings.
+        </p>
+
+      </div>
+
+
+      <div class="amenity-card reveal">
+
+        <div class="amenity-icon">
+          ⌂
+        </div>
+
+        <h3 class="text-xl font-semibold">
+          Private Clubhouse
+        </h3>
+
+        <p class="text-muted leading-7 mt-3">
+          Social spaces, lounges and thoughtfully designed
+          interiors for every occasion.
+        </p>
+
+      </div>
+
+
+      <div class="amenity-card reveal">
+
+        <div class="amenity-icon">
+          +
+        </div>
+
+        <h3 class="text-xl font-semibold">
+          Fitness Studio
+        </h3>
+
+        <p class="text-muted leading-7 mt-3">
+          A modern wellness space to keep your everyday
+          fitness routine effortless.
+        </p>
+
+      </div>
+
+
+      <div class="amenity-card reveal">
+
+        <div class="amenity-icon">
+          ♧
+        </div>
+
+        <h3 class="text-xl font-semibold">
+          Garden Courtyard
+        </h3>
+
+        <p class="text-muted leading-7 mt-3">
+          Landscaped gardens create quiet pockets of nature
+          throughout the property.
+        </p>
+
+      </div>
+
+
+      <div class="amenity-card reveal">
+
+        <div class="amenity-icon">
+          ◇
+        </div>
+
+        <h3 class="text-xl font-semibold">
+          Kids' Play Area
+        </h3>
+
+        <p class="text-muted leading-7 mt-3">
+          Safe and engaging spaces where children can
+          explore, play and grow.
+        </p>
+
+      </div>
+
+
+      <div class="amenity-card reveal">
+
+        <div class="amenity-icon">
+          ◎
+        </div>
+
+        <h3 class="text-xl font-semibold">
+          24/7 Security
+        </h3>
+
+        <p class="text-muted leading-7 mt-3">
+          Controlled access and round-the-clock security
+          for complete peace of mind.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     GALLERY
+========================================================== -->
+
+<section id="gallery" class="section bg-sand">
+
+  <div class="container-custom">
+
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-7 reveal">
+
+      <div>
+
+        <div class="eyebrow text-muted mb-5">
+          Visual Tour
+        </div>
+
+        <h2 class="display text-5xl md:text-6xl leading-[1.05]">
+
+          See your future
+
+          <br>
+
+          <em>come alive.</em>
+
+        </h2>
+
+      </div>
+
+
+      <p class="text-muted max-w-sm leading-7">
+        Explore the architecture, interiors and landscaped
+        spaces of VERA Residences.
+      </p>
+
+    </div>
+
+
+    <div class="grid md:grid-cols-2 gap-5 mt-14">
+
+
+      <!-- Large -->
+
+      <div
+        class="gallery-image h-[540px] reveal"
+        onclick="openGallery(this)"
+      >
+
+        <img
+          src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=90"
+          alt="Luxury living room"
+          loading="lazy"
+        >
+
+      </div>
+
+
+      <!-- Small -->
+
+      <div class="grid grid-rows-2 gap-5">
+
+
+        <div
+          class="gallery-image h-[257px] reveal"
+          onclick="openGallery(this)"
+        >
+
+          <img
+            src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=90"
+            alt="Premium interior"
+            loading="lazy"
+          >
+
+        </div>
+
+
+        <div
+          class="gallery-image h-[257px] reveal"
+          onclick="openGallery(this)"
+        >
+
+          <img
+            src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1200&q=90"
+            alt="Modern kitchen"
+            loading="lazy"
+          >
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     RESIDENCES / PLANS
+========================================================== -->
+
+<section id="plans" class="section">
+
+  <div class="container-custom">
+
+    <div class="text-center max-w-2xl mx-auto reveal">
+
+      <div class="eyebrow text-muted mb-5">
+        Residences
+      </div>
+
+      <h2 class="display text-5xl md:text-6xl leading-[1.05]">
+
+        Find the space
+
+        <br>
+
+        <em>that fits you.</em>
+
+      </h2>
+
+    </div>
+
+
+    <div class="grid md:grid-cols-2 gap-6 mt-14">
+
+
+      <!-- 2 BHK -->
+
+      <div class="plan-card reveal">
+
+        <div class="flex items-start justify-between">
+
+          <div>
+
+            <div class="text-xs uppercase tracking-[.2em] text-muted">
+              Residence
+            </div>
+
+            <div class="plan-number mt-3">
+              2 BHK
+            </div>
+
+          </div>
+
+          <span class="px-4 py-2 rounded-full bg-sand text-xs">
+            Smart Living
+          </span>
+
+        </div>
+
+
+        <div class="h-px bg-black/10 my-9"></div>
+
+
+        <div class="grid grid-cols-2 gap-7">
+
+          <div>
+
+            <div class="text-xs text-muted">
+              Carpet Area
+            </div>
+
+            <div class="font-semibold mt-2">
+              780–850 sq.ft.
+            </div>
+
+          </div>
+
+
+          <div>
+
+            <div class="text-xs text-muted">
+              Starting From
+            </div>
+
+            <div class="font-semibold mt-2">
+              ₹1.25 Cr*
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <button
+          onclick="scrollToContact()"
+          class="btn-dark w-full mt-9"
+        >
+          Get Floor Plan
+          <span>→</span>
+        </button>
+
+      </div>
+
+
+      <!-- 3 BHK -->
+
+      <div class="plan-card dark reveal">
+
+        <div class="flex items-start justify-between">
+
+          <div>
+
+            <div class="text-xs uppercase tracking-[.2em] text-white/40">
+              Residence
+            </div>
+
+            <div class="plan-number mt-3">
+              3 BHK
+            </div>
+
+          </div>
+
+          <span class="px-4 py-2 rounded-full bg-white/10 text-xs">
+            Signature
+          </span>
+
+        </div>
+
+
+        <div class="h-px bg-white/10 my-9"></div>
+
+
+        <div class="grid grid-cols-2 gap-7">
+
+          <div>
+
+            <div class="text-xs text-white/40">
+              Carpet Area
+            </div>
+
+            <div class="font-semibold mt-2">
+              1,150–1,300 sq.ft.
+            </div>
+
+          </div>
+
+
+          <div>
+
+            <div class="text-xs text-white/40">
+              Starting From
+            </div>
+
+            <div class="font-semibold mt-2">
+              ₹1.85 Cr*
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <button
+          onclick="scrollToContact()"
+          class="btn-primary w-full mt-9"
+        >
+          Get Floor Plan
+          <span>→</span>
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <p class="text-center text-xs text-muted mt-6">
+      *Indicative demo pricing. Actual pricing may vary.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     LOCATION
+========================================================== -->
+
+<section id="location" class="location-section section">
+
+  <div class="container-custom">
+
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+
+      <div class="reveal">
+
+        <div class="eyebrow text-white/40 mb-5">
+          Location
+        </div>
+
+        <h2 class="display text-5xl md:text-6xl leading-[1.04]">
+
+          Everything closer.
+
+          <br>
+
+          <em>Life, easier.</em>
+
+        </h2>
+
+
+        <p class="text-white/55 leading-8 mt-7 max-w-lg">
+          Located in Thane West, VERA connects you to
+          work, entertainment, education and everyday essentials.
+        </p>
+
+
+        <div class="mt-10">
+
+          <div class="flex justify-between py-5 border-b border-white/10">
+
+            <span class="text-white/50">
+              Metro Station
+            </span>
+
+            <strong>
+              5 min
+            </strong>
+
+          </div>
+
+
+          <div class="flex justify-between py-5 border-b border-white/10">
+
+            <span class="text-white/50">
+              Thane Station
+            </span>
+
+            <strong>
+              12 min
+            </strong>
+
+          </div>
+
+
+          <div class="flex justify-between py-5 border-b border-white/10">
+
+            <span class="text-white/50">
+              Eastern Express Highway
+            </span>
+
+            <strong>
+              8 min
+            </strong>
+
+          </div>
+
+
+          <div class="flex justify-between py-5">
+
+            <span class="text-white/50">
+              Schools & Hospitals
+            </span>
+
+            <strong>
+              10 min
+            </strong>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="map-frame reveal">
+
+        <iframe
+          src="https://www.google.com/maps?q=Thane%20West%20Mumbai&output=embed"
+          loading="lazy"
+          title="VERA Residences location"
+        ></iframe>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     TESTIMONIAL
+========================================================== -->
+
+<section class="section">
+
+  <div class="container-custom">
+
+    <div class="max-w-4xl mx-auto text-center reveal">
+
+      <div class="quote-mark">
+        “
+      </div>
+
+      <blockquote class="display text-4xl md:text-5xl leading-[1.2] mt-8">
+
+        We wanted a home that felt premium
+        without feeling pretentious.
+        VERA was exactly that.
+
+      </blockquote>
+
+
+      <div class="mt-9">
+
+        <div class="font-semibold">
+          Rahul & Ananya
+        </div>
+
+        <div class="text-sm text-muted mt-1">
+          VERA Residents
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     CONTACT
+========================================================== -->
+
+<section id="contact" class="section bg-sand">
+
+  <div class="container-custom">
+
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+
+      <div class="reveal">
+
+        <div class="eyebrow text-muted mb-5">
+          Private Enquiry
+        </div>
+
+        <h2 class="display text-5xl md:text-7xl leading-[1]">
+
+          Your new home
+
+          <br>
+
+          <em>starts here.</em>
+
+        </h2>
+
+
+        <p class="text-muted leading-8 mt-7 max-w-md">
+          Leave your details and our property advisor will
+          contact you to arrange a private site visit.
+        </p>
+
+
+        <div class="flex flex-wrap gap-3 mt-9">
+
+          <a
+            href="tel:+919876543210"
+            class="btn-outline !text-ink !border-ink"
+          >
+            Call Us
+          </a>
+
+          <a
+            href="https://wa.me/919876543210"
+            target="_blank"
+            class="btn-dark"
+          >
+            WhatsApp
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- FORM -->
+
+      <div class="form-card reveal">
+
+        <form id="leadForm">
+
+          <div class="mb-5">
+
+            <label class="block text-sm font-semibold mb-2">
+              Your Name
+            </label>
+
+            <input
+              id="name"
+              type="text"
+              class="input-field"
+              placeholder="Enter your name"
+              required
+            >
+
+          </div>
+
+
+          <div class="mb-5">
+
+            <label class="block text-sm font-semibold mb-2">
+              Phone Number
+            </label>
+
+            <input
+              id="phone"
+              type="tel"
+              class="input-field"
+              placeholder="+91 98765 43210"
+              required
+            >
+
+          </div>
+
+
+          <div class="mb-6">
+
+            <label class="block text-sm font-semibold mb-2">
+              Interested In
+            </label>
+
+            <select id="property" class="input-field">
+
+              <option value="2 BHK">
+                2 BHK
+              </option>
+
+              <option value="3 BHK">
+                3 BHK
+              </option>
+
+              <option value="Not Sure">
+                Not Sure
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <button
+            type="submit"
+            class="btn-dark w-full"
+          >
+            Request a Call
+            <span>→</span>
+          </button>
+
+
+          <p class="text-[11px] text-muted text-center mt-4">
+            Your information is private and used only for this enquiry.
+          </p>
+
+        </form>
+
+
+        <!-- SUCCESS -->
+
+        <div id="success" class="hidden text-center py-12">
+
+          <div
+            class="w-16 h-16 mx-auto rounded-full bg-sand flex items-center justify-center text-xl"
+          >
+            ✓
+          </div>
+
+          <h3 class="display text-3xl mt-6">
+            Thank you.
+          </h3>
+
+          <p class="text-muted mt-3">
+            Our property advisor will contact you shortly.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================== -->
+
+<footer class="footer py-12">
+
+  <div class="container-custom">
+
+    <div class="flex flex-col md:flex-row justify-between gap-8">
+
+      <div>
+
+        <div class="font-semibold tracking-[.2em]">
+          VERA
+        </div>
+
+        <p class="text-white/35 text-sm mt-2">
+          Premium residences in Thane West.
+        </p>
+
+      </div>
+
+
+      <div class="text-sm text-white/35">
+        © 2026 VERA Residences
+      </div>
+
+    </div>
+
+
+    <div class="border-t border-white/10 mt-10 pt-7">
+
+      <p class="text-[11px] text-white/25 leading-6">
+        This website is a conceptual demonstration.
+        Project names, pricing, specifications and availability
+        shown here are for demonstration purposes only.
+      </p>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<!-- =========================================================
+     WHATSAPP
+========================================================== -->
+
+<a
+  href="https://wa.me/919876543210"
+  target="_blank"
+  class="whatsapp"
+  aria-label="Chat on WhatsApp"
+>
+
+  <span class="text-xl">
+    ✆
+  </span>
+
+</a>
+
+
+<!-- =========================================================
+     GALLERY MODAL
+========================================================== -->
+
+<div id="galleryModal" class="modal">
+
+  <button
+    class="modal-close"
+    onclick="closeGallery()"
+    aria-label="Close"
+  >
+    ×
+  </button>
+
+  <img
+    id="modalImage"
+    src=""
+    alt="Gallery preview"
+  >
+
+</div>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================== -->
+
+<script>
+
+  /* =========================================================
+     NAVBAR
+  ========================================================== */
+
+  const navbar = document.getElementById("navbar");
+
+  window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 30) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
+    }
+
+  });
+
+
+  /* =========================================================
+     MOBILE MENU
+  ========================================================== */
+
+  const menuBtn =
+    document.getElementById("menuBtn");
+
+  const mobileMenu =
+    document.getElementById("mobileMenu");
+
+
+  menuBtn.addEventListener("click", () => {
+
+    mobileMenu.classList.toggle("open");
+
+    menuBtn.textContent =
+      mobileMenu.classList.contains("open")
+        ? "×"
+        : "☰";
+
+  });
+
+
+  document
+    .querySelectorAll("#mobileMenu a")
+    .forEach(link => {
+
+      link.addEventListener("click", () => {
+
+        mobileMenu.classList.remove("open");
+
+        menuBtn.textContent = "☰";
+
+      });
+
+    });
+
+
+  /* =========================================================
+     SCROLL TO CONTACT
+  ========================================================== */
+
+  function scrollToContact() {
+
+    document
+      .getElementById("contact")
+      .scrollIntoView({
+        behavior: "smooth"
+      });
+
+  }
+
+
+  /* =========================================================
+     GALLERY
+  ========================================================== */
+
+  function openGallery(element) {
+
+    const image =
+      element.querySelector("img");
+
+    document
+      .getElementById("modalImage")
+      .src = image.src;
+
+    document
+      .getElementById("galleryModal")
+      .classList.add("open");
+
+  }
+
+
+  function closeGallery() {
+
+    document
+      .getElementById("galleryModal")
+      .classList.remove("open");
+
+  }
+
+
+  document
+    .getElementById("galleryModal")
+    .addEventListener("click", function(event) {
+
+      if (event.target === this) {
+        closeGallery();
+      }
+
+    });
+
+
+  document.addEventListener("keydown", event => {
+
+    if (event.key === "Escape") {
+      closeGallery();
+    }
+
+  });
+
+
+  /* =========================================================
+     LEAD FORM
+  ========================================================== */
+
+  const leadForm =
+    document.getElementById("leadForm");
+
+
+  leadForm.addEventListener("submit", event => {
+
+    event.preventDefault();
+
+
+    const lead = {
+
+      name:
+        document.getElementById("name").value,
+
+      phone:
+        document.getElementById("phone").value,
+
+      property:
+        document.getElementById("property").value,
+
+      createdAt:
+        new Date().toISOString()
+
+    };
+
+
+    /*
+      DEMO ONLY
+
+      Later connect this to:
+
+      Google Sheets
+      Supabase
+      Node.js API
+      Formspree
+      n8n
+      CRM
+    */
+
+    console.log("NEW REAL ESTATE LEAD:", lead);
+
+
+    leadForm.classList.add("hidden");
+
+    document
+      .getElementById("success")
+      .classList.remove("hidden");
+
+  });
+
+
+  /* =========================================================
+     REVEAL ON SCROLL
+  ========================================================== */
+
+  const revealElements =
+    document.querySelectorAll(".reveal");
+
+
+  const observer =
+    new IntersectionObserver(
+      entries => {
+
+        entries.forEach(entry => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add("visible");
+
+            observer.unobserve(entry.target);
+
+          }
+
+        });
+
+      },
+      {
+        threshold: .12
+      }
+    );
+
+
+  revealElements.forEach(element => {
+
+    observer.observe(element);
+
+  });
+
+</script>
+
+</body>
+</html>
